@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "userstore"
+    }
+  },
+  "defaultProject": "userstore",
+  "cli": {
+    "analytics": false
+  }
 }
