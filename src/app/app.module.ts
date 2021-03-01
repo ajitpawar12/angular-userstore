@@ -9,6 +9,10 @@ import { LayoutMenuComponent } from './pages/layout-menu/layout-menu.component';
 import { LayoutFooterComponent } from './pages/layout-footer/layout-footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { ReportAnalyticComponent } from './pages/report-analytic/report-analytic.component';
+import { NgxSpinnerModule } from "ngx-spinner";  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,11 +22,15 @@ import { RegistrationComponent } from './pages/registration/registration.compone
     LayoutMenuComponent,
     LayoutFooterComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ReportAnalyticComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

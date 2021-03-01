@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { ReportAnalyticComponent } from './pages/report-analytic/report-analytic.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -16,9 +17,9 @@ const routes: Routes = [{
   path: '',
   component: LayoutComponent,
   data:{allowedRoles: ['Admin','Dealer']},
-  children: [
+  children: [    
     { 
-      path: 'dashboard', component: LayoutComponent,
+      path: 'report-analytic', component: ReportAnalyticComponent,
       data: { 
               allowedRoles: ['Admin','Dealer']
             }
