@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { ReportAnalyticComponent } from './pages/report-analytic/report-analytic.component';
+import { AuthGuard } from "src/app/services/auth.guard";
 
 const routes: Routes = [{
   path: 'login',
@@ -15,13 +16,13 @@ const routes: Routes = [{
 },
 {
   path: '',
-  component: LayoutComponent,
-  data:{allowedRoles: ['Admin','Dealer']},
+  component: LayoutComponent,canActivate:[AuthGuard],
+  data:{allowedRoles: ['Admin']},
   children: [    
     { 
       path: 'report-analytic', component: ReportAnalyticComponent,
       data: { 
-              allowedRoles: ['Admin','Dealer']
+              allowedRoles: ['Admin']
             }
     }]
 }

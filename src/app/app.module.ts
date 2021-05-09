@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './pages/layout/layout.component';
@@ -13,6 +14,14 @@ import { ReportAnalyticComponent } from './pages/report-analytic/report-analytic
 import { NgxSpinnerModule } from "ngx-spinner";  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MasterUserComponent } from './pages/master-user/master-user.component';
+import {ApiService} from 'src/app/services/api.service';
+import { AuthGuard } from "src/app/services/auth.guard";
+import {AlertService} from 'src/app/services/alert.service';
+import { URL } from 'src/app/Helpers/APIUrl'
+
+
 
 @NgModule({
   declarations: [
@@ -23,16 +32,21 @@ import { HttpClientModule} from '@angular/common/http';
     LayoutFooterComponent,
     LoginComponent,
     RegistrationComponent,
-    ReportAnalyticComponent
+    ReportAnalyticComponent,
+    MasterUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module
+    
   ],
-  providers: [],
+  providers: [ApiService,AuthGuard,AlertService,URL],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
